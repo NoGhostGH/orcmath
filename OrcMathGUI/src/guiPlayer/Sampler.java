@@ -14,7 +14,7 @@ import guiTeacher.components.*;
 import guiTeacher.interfaces.KeyedComponent;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
-import sunny.Sprite;
+import sunny.Monster;
 
 public class Sampler extends GUIApplication {
 
@@ -121,7 +121,7 @@ public class Sampler extends GUIApplication {
 			}); 
 			viewObjects.add(cb);
 			
-			viewObjects.add(new Sprite());
+			//viewObjects.add(new Monster());
 		}
 		
 		public void mouseDragged(MouseEvent m) {
