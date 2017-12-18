@@ -17,8 +17,6 @@ public class FileLoadingConsole {
 		 testSaveContent("test.csv");
 	 }
 
-
-
 	 private static void testSaveContent(String fileName) {
 		 try{    
 			 FileWriter fw=new FileWriter(fileName);    
@@ -38,8 +36,6 @@ public class FileLoadingConsole {
 			 System.out.println(item);
 		 }
 	 }
-
-
 
  private static List<String> testFileLoading() {
 

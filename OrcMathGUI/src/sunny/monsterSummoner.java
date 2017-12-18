@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class monsterSummoner {
 
 	private static ArrayList<Monster> monstersArray;
+	private String[] species = {"dragon", "human", "orc", "phoenix", "android"};
 	
 	public monsterSummoner() {
 		monstersArray = new ArrayList<Monster>();
@@ -40,8 +41,6 @@ public class monsterSummoner {
 			str = input.nextLine();
 			if(str.equalsIgnoreCase("no") || str.equalsIgnoreCase("nope"))
 				adding = false;
-			else
-				adding = true;
 		}
 		System.out.println(cs.getCsvContent());
 	}
@@ -59,6 +58,7 @@ public class monsterSummoner {
 	}
 	public static String askMonsterSpecies()
 	{
+		//System.out.println("What species is this monster? A dragon, human, orc, phoenix or android?");
 		System.out.println("What species is this monster?");
 		Scanner input = new Scanner(System.in);
 		String str = input.nextLine();
