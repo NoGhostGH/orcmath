@@ -14,7 +14,7 @@ public class FileLoadingConsole {
 	 public static void main(String[] args){
 		 List<String> content = testFileLoading();
 		 displayContent(content);
-		 testSaveContent("test.csv");
+		 testSaveContent("test.txt");
 	 }
 
 	 private static void testSaveContent(String fileName) {
