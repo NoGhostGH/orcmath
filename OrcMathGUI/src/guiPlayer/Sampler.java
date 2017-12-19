@@ -20,6 +20,7 @@ import guiTeacher.interfaces.KeyedComponent;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FileLoader;
 import guiTeacher.userInterfaces.FullFunctionScreen;
+import sunny.Monster;
 
 public class Sampler extends GUIApplication implements FileRequester{
 
@@ -127,11 +128,14 @@ public class Sampler extends GUIApplication implements FileRequester{
 			}); 
 			viewObjects.add(cb);
 			
-			
+
 				
-				FileOpenButton fileButton = new FileOpenButton(490, 70, 120, 30, null,Sampler.this);
-				viewObjects.add(fileButton);
+			//	FileOpenButton fileButton = new FileOpenButton(490, 70, 120, 30, null,Sampler.this);
+			//	viewObjects.add(fileButton);
 			
+
+			//viewObjects.add(new Monster());
+
 		}
 		
 		public void mouseDragged(MouseEvent m) {
