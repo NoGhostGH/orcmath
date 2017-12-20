@@ -1,12 +1,18 @@
 package sunny;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import guiPlayer.Book;
 
 public class monsterSummoner {
 
 	private static ArrayList<Monster> monstersArray;
-	private String[] species = {"dragon", "human", "orc", "phoenix", "android"};
 	
 	public monsterSummoner() {
 		monstersArray = new ArrayList<Monster>();
@@ -26,9 +32,14 @@ public class monsterSummoner {
 		String str = input.nextLine();
 		
 		if(str.equalsIgnoreCase("no") || str.equalsIgnoreCase("nope"))
+		{
 			adding = false;
+		}
+		
 		else
+		{
 			adding = true;
+		}
 		while(adding)
 		{
 			String name = askMonsterName();
@@ -75,14 +86,14 @@ public class monsterSummoner {
 		//not done
 		System.out.println("What level is this monster?");
 		Scanner input = new Scanner(System.in);
-		String str = input.nextLine();
-		while(str == "")
+		int integer = Integer.parseInt(input.nextLine());
+		while(input.nextLine() == "")
 		{
-			System.out.println("That is not a valid species, try again.");
+			System.out.println("Please input a number above zero.");
 		}
-		return str;
-	}*/
-	
+		return integer;
+	}
+	*/
 	
 	public String getCsvContent()
 	{
@@ -93,4 +104,55 @@ public class monsterSummoner {
 		}
 		return data;
 	}
+	
+	private void save() {
+		try{    
+			FileWriter fw=new FileWriter("BookCatalog.csv");
+			for(Monster m: monstersArray){
+				fw.write(m+"\n");    	
+			}
+
+			fw.close();    
+			System.out.println("Success! File \"BookCatalog.csv\" saved!");
+		}catch(IOException e){
+			System.out.println("An IOException was thrown. \nCheck to see that the directory where you tried to save the file actually exists.");
+		}
+	}
+	private void addMonster(Monster m){
+		monsterSummoner.add(m);
+	}
+	
+	
+	/*private void load() {
+		String fileName = "";
+		//empty the catalog to prepare for a new load
+		monstersArray = new ArrayList<Monster>();
+		//use this boolean to control the while loop. The user should have multiple chances to enter a correct filename
+		boolean opened = false;
+		while(!opened){
+			try {
+				System.out.println("Enter a file to open");
+				fileName = in.nextLine();
+				FileReader fileReader = new FileReader(new File(fileName));
+				String line = "";
+				//a BufferedReader enables us to read teh file one line at a time
+				BufferedReader br = new BufferedReader(fileReader);
+				while ((line = br.readLine()) != null) {
+
+					String[] param = line.split(",");
+					//add a new Book for each line in the save file
+					monstersArray.add(new Book(param[0],param[1],Integer.parseInt(param[2])));
+
+
+
+				}
+				br.close();
+				opened = true;
+			}catch (IOException e) {
+				System.out.println("The file name you specified does not exist.");
+			}
+		}
+		create();
+
+	}*/
 }
