@@ -8,4 +8,6 @@ public interface ButtonInterfaceSunny extends Clickable{
 
 	//each button has a different color
 	void setButtonColor(Color color);
+	
+	
 }

@@ -17,7 +17,7 @@ public class SimonScreenSunny extends ClickableScreen implements Runnable{
 	private boolean userInputAccepted;
 	private int sequenceIndex;
 	private int lastSelectedButton;
-	private boolean roundWon;
+	private int numberOfButtons;
 	
 	public SimonScreenSunny(int width, int height) {
 		// TODO Auto-generated constructor stub
