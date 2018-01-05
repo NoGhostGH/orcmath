@@ -7,4 +7,6 @@ public interface MoveInterfaceSunny {
 	
 	//turns off all lights
 	void lightOff();
+	
+	void getButton();
 }
