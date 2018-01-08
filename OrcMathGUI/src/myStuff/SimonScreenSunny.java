@@ -101,6 +101,7 @@ public class SimonScreenSunny extends ClickableScreen implements Runnable{
 					// TODO Auto-generated method stub
 					if(acceptingInput)
 					{
+						
 						Thread blink = new Thread(new Runnable() {
 							
 							@Override
