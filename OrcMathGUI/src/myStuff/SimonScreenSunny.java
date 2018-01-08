@@ -37,11 +37,58 @@ public class SimonScreenSunny extends ClickableScreen implements Runnable{
 	}
 
 	private void nextRound() {
-		// TODO Auto-generated method stub
 		acceptingInput = false;
-		roundNumber++;
+		roundNumber ++;
 		sequence.add(randomMove());
 		
+		progessInterface.setRound(roundNumber);
+		progessInterface.setSequenceSize(sequence.size());
+		
+		changeText("Simon's turn");
+		playSequence();
+		changeText("Your Turn");
+		acceptingInput = true;
+		sequenceIndex = 0;
+	}
+
+	public void changeText(String a) {
+		Thread displayLabel = new Thread(new Runnable() {
+			public void run() {
+				txtLbl.setText(a);
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				txtLbl.setText("");
+			}
+		});
+		displayLabel.run();
+	}
+	
+	
+	public void playSequence() {
+		ButtonInterfaceSunny b;
+		for(MoveInterfaceSunny a:sequence) {
+			if(b!=null) {
+				b.dim();
+				b = a.getButton();
+				b.highlight();
+				
+				int sleepTime = (2000/roundNumber);
+				Thread c = new Thread(new Runnable() {
+					public void run() {
+						try {
+							Thread.sleep(sleepTime);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+						
+					}
+				});
+			}
+		}
+		b.dim();
 	}
 
 	@Override
@@ -81,7 +128,8 @@ public class SimonScreenSunny extends ClickableScreen implements Runnable{
 	//Placeholder until partner finishes implementation of Progress Interface
 	private ProgressInterfaceSunny getProgress() {
 		// TODO Auto-generated method stub
-		return null;
+		ProgressInterfaceSunny andrewInt = new ProgressAndrew(, lastSelectedButton, lastSelectedButton, lastSelectedButton);
+		return andrewInt;
 	}
 
 	private void addButtons() {
