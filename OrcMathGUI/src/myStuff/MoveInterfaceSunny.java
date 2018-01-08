@@ -2,5 +2,5 @@ package myStuff;
 
 public interface MoveInterfaceSunny {
 
-	void getButton();
+	ButtonInterfaceSunny getButton();
 }
