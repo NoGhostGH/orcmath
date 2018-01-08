@@ -41,6 +41,7 @@ public class SimonScreenSunny extends ClickableScreen implements Runnable{
 		acceptingInput = false;
 		roundNumber++;
 		arrList.add(randomMove());
+		
 	}
 
 	@Override
