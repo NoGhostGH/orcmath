@@ -2,8 +2,8 @@ package myStuff;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
 
+import guiTeacher.Utilities;
 import guiTeacher.components.*;
 
 public class ButtonAndrew extends Button implements ButtonInterfaceSunny{
@@ -12,7 +12,6 @@ public class ButtonAndrew extends Button implements ButtonInterfaceSunny{
 	Color bColor;
 	int x;
 	int y;
-	
 	
 	public ButtonAndrew(int x, int y, int w, int h) {
 		super(x, y, w, h,"",null);
@@ -37,20 +36,18 @@ public class ButtonAndrew extends Button implements ButtonInterfaceSunny{
 	public void setButtonColor(Color color) {
 		bColor = color;
 	}
-	
+
 	@Override
 	public void highlight() {
-		g.lighten();
+		// TODO Auto-generated method stub
+		Color currentColor = bColor;
+		Utilities.lighten(currentColor, 50);
 	}
 
 	@Override
 	public void dim() {
 		// TODO Auto-generated method stub
-		
+		Color currentColor = bColor;
+		Utilities.lighten(currentColor, -50);
 	}
-	
-	public void setAction() {
-		
-	}
-
 }

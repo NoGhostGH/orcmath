@@ -1,7 +1,7 @@
 package myStuff;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
 
 import guiTeacher.components.*;
 
@@ -19,7 +19,8 @@ public class ProgressAndrew extends Component implements ProgressInterfaceSunny 
 	@Override
 	public void update(Graphics2D g) {
 		// TODO Auto-generated method stub
-		
+		g.setColor(Color.BLACK);
+		g.drawString("", x, y);
 	}
 
 }
