@@ -96,7 +96,6 @@ public class SimonScreenSunny extends ClickableScreen implements Runnable{
 			b.setY(100);
 			b.setAction(new Action() 
 			{
-				
 				@Override
 				public void act() {
 					// TODO Auto-generated method stub
