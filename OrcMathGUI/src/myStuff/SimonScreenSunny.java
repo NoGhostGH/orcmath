@@ -40,6 +40,7 @@ public class SimonScreenSunny extends ClickableScreen implements Runnable{
 		// TODO Auto-generated method stub
 		acceptingInput = false;
 		roundNumber++;
+		arrList.add(randomMove());
 	}
 
 	@Override
@@ -85,7 +86,7 @@ public class SimonScreenSunny extends ClickableScreen implements Runnable{
 	private void addButtons() {
 		// TODO Auto-generated method stub
 		numberOfButtons = 5;
-		ButtonInterfaceSunny[] arrList = new ButtonInterfaceSunny[numberOfButtons];
+		buttonInterface = new ButtonInterfaceSunny[numberOfButtons];
 		for(int i  = 0; i < numberOfButtons; i++)
 		{
 			final ButtonInterfaceSunny b = getAButton();
