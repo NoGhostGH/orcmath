@@ -13,7 +13,7 @@ public class SimonScreenSunny extends ClickableScreen implements Runnable{
 
 	private TextLabel txtLbl;
 	private ProgressInterfaceSunny progessInterface;
-	private ArrayList<MoveInterfaceSunny> arrList;
+	private ArrayList<MoveInterfaceSunny> sequence;
 	private ButtonInterfaceSunny[] buttonInterface;
 	private int roundNumber;
 	private boolean acceptingInput;
@@ -40,7 +40,7 @@ public class SimonScreenSunny extends ClickableScreen implements Runnable{
 		// TODO Auto-generated method stub
 		acceptingInput = false;
 		roundNumber++;
-		arrList.add(randomMove());
+		sequence.add(randomMove());
 		
 	}
 
@@ -53,11 +53,11 @@ public class SimonScreenSunny extends ClickableScreen implements Runnable{
 		}
 		progessInterface = getProgress();
 		txtLbl = new TextLabel(130,230,300,40,"Let's play Simon!");
-		arrList = new ArrayList<MoveInterfaceSunny>();
+		sequence = new ArrayList<MoveInterfaceSunny>();
 		//add 2 moves to start
 		lastSelectedButton = -1;
-		arrList.add(randomMove());
-		arrList.add(randomMove());
+		sequence.add(randomMove());
+		sequence.add(randomMove());
 		roundNumber = 0;
 		viewObjects.add(progessInterface);
 		viewObjects.add(txtLbl);
@@ -121,7 +121,7 @@ public class SimonScreenSunny extends ClickableScreen implements Runnable{
 							}
 						});
 						blink.start();
-						if(b == arrList.get(sequenceIndex).getButton())
+						if(b == sequence.get(sequenceIndex).getButton())
 						{
 							sequenceIndex++;
 						}
@@ -129,7 +129,7 @@ public class SimonScreenSunny extends ClickableScreen implements Runnable{
 						{
 							progressInterface.gameOver();
 						}
-						if(sequenceIndex == arrList.size())
+						if(sequenceIndex == sequence.size())
 						{
 							Thread nextRound = new Thread(SimonScreenSunny.this);
 							nextRound.start();

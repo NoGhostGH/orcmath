@@ -20,7 +20,7 @@ public class SimonGameSunny extends GUIApplication{
 	
 	public static void main(String[] arg)
 	{
-		CustomGUI s = new CustomGUI(800, 550);
+		SimonScreenSunny s = new SimonScreenSunny(800, 550);
 		Thread runner = new Thread(s);
 		runner.start();
 	}
