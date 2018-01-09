@@ -2,6 +2,7 @@ package myStuff;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 
 import guiTeacher.Utilities;
 import guiTeacher.components.*;
@@ -18,8 +19,10 @@ public class ButtonAndrew extends Button implements ButtonInterfaceSunny{
 	}
 	
 	public void drawButton(Graphics2D g, boolean hover) {
+		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+				RenderingHints.VALUE_ANTIALIAS_ON);
 		g.setColor(bColor);
-		g.drawRect(x, y, 50, 50);
+		g.fillRect(x,y,getWidth(),getHeight());
 	}
 
 	@Override
