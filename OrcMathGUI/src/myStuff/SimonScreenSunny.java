@@ -195,7 +195,7 @@ public class SimonScreenSunny extends ClickableScreen implements Runnable{
 
 	//Placeholder until partner finishes implementation of ButtonInterface
 	private ButtonInterfaceSunny getAButton() {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub ahahahahh
 		return new ButtonAndrew(0, 0, 30, 30);
 	}
 
