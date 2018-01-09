@@ -142,7 +142,7 @@ public class SimonScreenSunny extends ClickableScreen implements Runnable{
 		buttonInterface = new ButtonInterfaceSunny[numberOfButtons];
 		for(int i  = 0; i < numberOfButtons; i++)
 		{
-			final ButtonInterfaceSunny b = getAButton();
+			ButtonInterfaceSunny b = getAButton();
 			buttonInterface[i] = b;
 			b.setButtonColor(colors[i]);
 			b.setX(50*i);
