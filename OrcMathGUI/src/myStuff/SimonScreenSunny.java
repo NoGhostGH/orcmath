@@ -68,7 +68,7 @@ public class SimonScreenSunny extends ClickableScreen implements Runnable{
 	
 	
 	public void playSequence() {
-		ButtonInterfaceSunny b;
+		ButtonInterfaceSunny b = null;
 		for(MoveInterfaceSunny a:sequence) {
 			if(b!=null) {
 				b.dim();
@@ -128,7 +128,7 @@ public class SimonScreenSunny extends ClickableScreen implements Runnable{
 	//Placeholder until partner finishes implementation of Progress Interface
 	private ProgressInterfaceSunny getProgress() {
 		// TODO Auto-generated method stub
-		ProgressInterfaceSunny andrewInt = new ProgressAndrew(, lastSelectedButton, lastSelectedButton, lastSelectedButton);
+		ProgressInterfaceSunny andrewInt = new ProgressAndrew(50,50,50,50);
 		return andrewInt;
 	}
 
