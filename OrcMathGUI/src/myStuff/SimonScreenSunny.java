@@ -11,8 +11,12 @@ import guiTeacher.userInterfaces.ClickableScreen;
 
 public class SimonScreenSunny extends ClickableScreen implements Runnable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2264248466883566732L;
 	private TextLabel txtLbl;
-	private ProgressInterfaceSunny progessInterface;
+	private ProgressInterfaceSunny progressInterface;
 	private ArrayList<MoveInterfaceSunny> sequence;
 	private ButtonInterfaceSunny[] buttonInterface;
 	private int roundNumber;
@@ -41,8 +45,8 @@ public class SimonScreenSunny extends ClickableScreen implements Runnable{
 		roundNumber ++;
 		sequence.add(randomMove());
 		
-		progessInterface.setRound(roundNumber);
-		progessInterface.setSequenceSize(sequence.size());
+		progressInterface.setRound(roundNumber);
+		progressInterface.setSequenceSize(sequence.size());
 		
 		changeText("Simon's turn");
 		playSequence();
@@ -98,7 +102,7 @@ public class SimonScreenSunny extends ClickableScreen implements Runnable{
 		for(ButtonInterfaceSunny b: buttonInterface){ 
 		    viewObjects.add(b); 
 		}
-		progessInterface = getProgress();
+		progressInterface = getProgress();
 		txtLbl = new TextLabel(130,230,300,40,"Let's play Simon!");
 		sequence = new ArrayList<MoveInterfaceSunny>();
 		//add 2 moves to start
@@ -106,7 +110,7 @@ public class SimonScreenSunny extends ClickableScreen implements Runnable{
 		sequence.add(randomMove());
 		sequence.add(randomMove());
 		roundNumber = 0;
-		viewObjects.add(progessInterface);
+		viewObjects.add(progressInterface);
 		viewObjects.add(txtLbl);
 	}
 
@@ -142,7 +146,7 @@ public class SimonScreenSunny extends ClickableScreen implements Runnable{
 			buttonInterface[i] = b;
 			b.setButtonColor(colors[i]);
 			b.setX(50*i);
-			b.setY(100);
+			b.setY(200);
 			b.setAction(new Action() 
 			{
 				@Override
@@ -192,7 +196,7 @@ public class SimonScreenSunny extends ClickableScreen implements Runnable{
 	//Placeholder until partner finishes implementation of ButtonInterface
 	private ButtonInterfaceSunny getAButton() {
 		// TODO Auto-generated method stub
-		return null;
+		return new ButtonAndrew(0, 0, 30, 30);
 	}
 
 }
