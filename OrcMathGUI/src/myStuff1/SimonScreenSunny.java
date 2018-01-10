@@ -164,7 +164,7 @@ public class SimonScreenSunny extends ClickableScreen implements Runnable {
 		    		}
 		    		
 		    	}
-
+ 
 		    });
 			buttons[i] = b;
 		}
