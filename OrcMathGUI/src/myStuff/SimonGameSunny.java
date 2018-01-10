@@ -1,9 +1,13 @@
 package myStuff;
 
-import guiPlayer.CustomGUI;
 import guiTeacher.GUIApplication;
 
 public class SimonGameSunny extends GUIApplication{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4553986094406981067L;
 
 	public SimonGameSunny(int width, int height) {
 		// TODO Auto-generated constructor stub

@@ -8,6 +8,7 @@ import guiTeacher.components.Action;
 import guiTeacher.components.TextLabel;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.ClickableScreen;
+import myStuff1.ButtonInterfaceSunny;
 
 public class SimonScreenSunny extends ClickableScreen implements Runnable{
 
@@ -24,7 +25,7 @@ public class SimonScreenSunny extends ClickableScreen implements Runnable{
 	private int sequenceIndex;
 	private int lastSelectedButton;
 	private int numberOfButtons;
-	private Color[] colors = {Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.BLUE};
+	//private Color[] colors = {Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.BLUE};
 	
 	public SimonScreenSunny(int width, int height) {
 		// TODO Auto-generated constructor stub
@@ -70,30 +71,46 @@ public class SimonScreenSunny extends ClickableScreen implements Runnable{
 		displayLabel.run();
 	}
 	
-	
 	public void playSequence() {
 		ButtonInterfaceSunny b = null;
-		for(MoveInterfaceSunny a:sequence) {
-			if(b!=null) {
-				b.dim();
-				b = a.getButton();
-				b.highlight();
-				
-				int sleepTime = (2000/roundNumber);
-				Thread c = new Thread(new Runnable() {
-					public void run() {
-						try {
-							Thread.sleep(sleepTime);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-						
-					}
-				});
+		for(int i = 0; i < sequence.size(); i++) {
+			if(b != null) {
+				b.normalizeButton();
+			}
+			b = (ButtonInterfaceSunny) sequence.get(i).getButton();
+			b.highlightButton();
+			//Shorter the more rounds
+			int sleepTime = 1000 / roundNumber; //(Math.PI / (3 * Math.pow(Math.E, roundNumber))));
+			try {
+				Thread.sleep(sleepTime);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
 			}
 		}
-		b.dim();
+		b.normalizeButton();
+		/*
+		ButtonInterfaceSunny b;
+		for(MoveInterfaceSunny a: sequence)		
+		{
+			if(b != null)
+				b.dim();
+			b = a.getButton();
+			b.highlight();
+			int sleepTime = (2000/roundNumber);
+			Thread c = new Thread(new Runnable() {
+				public void run() {
+					try {
+						Thread.sleep(sleepTime);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					
+				}
+			});
+		}
+		b.dim();*/
 	}
+	
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
@@ -140,6 +157,7 @@ public class SimonScreenSunny extends ClickableScreen implements Runnable{
 		// TODO Auto-generated method stub
 		numberOfButtons = 5;
 		buttonInterface = new ButtonInterfaceSunny[numberOfButtons];
+		Color[] colors = {Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.BLUE};
 		for(int i  = 0; i < numberOfButtons; i++)
 		{
 			ButtonInterfaceSunny b = getAButton();
